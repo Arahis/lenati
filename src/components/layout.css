@@ -23,7 +23,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  background: rgb(233, 232, 220);
+  background: #e9e8dc;
   letter-spacing: 0.05em;
   scroll-behavior: smooth;
 }

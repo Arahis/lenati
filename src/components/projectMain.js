@@ -58,11 +58,13 @@ const ProjectMain = ({ project, index }) => {
         >
           <div className="scale">
             <GatsbyImage
+              style={{ maxHeight: "90vh" }}
               className="ourImage"
               image={image}
               quality={95}
               formats={["AUTO", "WEBP"]}
               alt={project.title}
+              imgStyle={{ objectFit: "contain" }}
             />
           </div>
         </Link>
@@ -81,7 +83,7 @@ const ProjectMain = ({ project, index }) => {
       >
         <h2
           style={{
-            fontSize: "3rem",
+            fontSize: "10vh",
             fontWeight: "200",
           }}
         >

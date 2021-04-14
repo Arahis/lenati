@@ -40,7 +40,7 @@ const query = graphql`
         pictures {
           localFile {
             childImageSharp {
-              gatsbyImageData(height: 500)
+              gatsbyImageData
             }
           }
         }

@@ -10,12 +10,38 @@ const Slider = ({ items }) => {
   const [arrowNext, setArrowNext] = useState(true)
   const [arrowPrev, setArrowPrev] = useState(false)
 
+  // Изначально у нас есть стрелка вправо и мы можем только прибавлять
+  // Дальше мы можем прибавлять и отнимать, Но это зависит от того на какой части экрана у нас мышка
+  // Третее положение, если у нас конец массива, мы можем только отнимать и стрелка влево
+
+  // Стрелку мы отслеживаем handleMouseMove, стэйт для стрелок меняем в useEffect
+
+  const handleMouseMove = useCallback(
+    e => {
+      setScreenWidth(e.view.innerWidth)
+      setTimeout(() => {
+        setTop(e.clientY)
+        setLeft(e.clientX)
+      }, 200)
+    },
+    [setScreenWidth, setTop, setLeft]
+  )
+
+  const handleMouseClick = useCallback(() => {
+    if (arrowNext) {
+      setCount(count + 1)
+    }
+    if (arrowPrev) {
+      setCount(count - 1)
+    }
+  }, [arrowNext, arrowPrev, count, setCount])
+
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove)
     return () => {
       window.removeEventListener("mousemove", handleMouseMove)
     }
-  })
+  }, [handleMouseMove])
 
   // Logic for Slider counter and arrows
   useEffect(() => {
@@ -39,29 +65,6 @@ const Slider = ({ items }) => {
     }
   }, [count, left, setArrowNext, setArrowPrev, items, screenWidth])
 
-  // Изначально у нас есть стрелка вправо и мы можем только прибавлять
-  // Дальше мы можем прибавлять и отнимать, Но это зависит от того на какой части экрана у нас мышка
-  // Третее положение, если у нас конец массива, мы можем только отнимать и стрелка влево
-
-  // Стрелку мы отслеживаем handleMouseMove, стэйт для стрелок меняем в useEffect
-
-  const handleMouseMove = useCallback(e => {
-    setScreenWidth(e.view.innerWidth)
-    setTimeout(() => {
-      setTop(e.clientY)
-      setLeft(e.clientX)
-    }, 200)
-  }, [])
-
-  const handleMouseClick = useCallback(() => {
-    if (arrowNext) {
-      setCount(count + 1)
-    }
-    if (arrowPrev) {
-      setCount(count - 1)
-    }
-  })
-
   return (
     <div
       onClick={handleMouseClick}
@@ -80,7 +83,7 @@ const Slider = ({ items }) => {
           top: top,
           left: left,
           transform: "translate(100%, 50%)",
-          transition: "transform 2s cubic-bezier(.02,1.23,.79,1.08)",
+          transition: "opacity .4s cubic-bezier(.215,.61,.355,1)",
           display: "flex",
           alignItems: "center",
           mixBlendMode: "difference",

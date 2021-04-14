@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react"
 import gsap from "gsap"
 import fadeInUp from "../../animations/fadeInUp"
+import { AiOutlineInstagram } from "react-icons/ai"
+import { AiOutlineFacebook } from "react-icons/ai"
 
 const Info = ({ showInfo, initialShowMenu }) => {
   const menu = useRef(null)
@@ -8,6 +10,8 @@ const Info = ({ showInfo, initialShowMenu }) => {
   const contactInfo = useRef(null)
   const contactPhone = useRef(null)
   const contactEmail = useRef(null)
+  const instagramRef = useRef(null)
+  const facebookRef = useRef(null)
   const mainInfo = useRef(null)
 
   useEffect(() => {
@@ -34,7 +38,13 @@ const Info = ({ showInfo, initialShowMenu }) => {
         height: "100%",
         ease: "power3.inOut",
       })
-      fadeInUp(contactInfo.current, contactPhone.current, contactEmail.current)
+      fadeInUp(
+        contactInfo.current,
+        contactPhone.current,
+        contactEmail.current,
+        instagramRef.current,
+        facebookRef.current
+      )
       gsap.from(mainInfo.current, {
         duration: 1.2,
         y: 120,
@@ -87,6 +97,30 @@ const Info = ({ showInfo, initialShowMenu }) => {
               lenati@mail.ru
             </a>
           </div>
+          <div style={{ display: "flex", marginTop: "1rem" }}>
+            <div style={{ overflow: "hidden" }}>
+              <a
+                ref={instagramRef}
+                href="https://www.instagram.com/lenati_photo/?fbclid=IwAR1C_lSTdNr_nO65ctHFolujaV311QyIM0gTEw8pp3s_-WG02mLWnAn-xr4"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "white" }}
+              >
+                <AiOutlineInstagram style={{ width: "30px", height: "30px" }} />
+              </a>
+            </div>
+            <div style={{ overflow: "hidden" }}>
+              <a
+                ref={facebookRef}
+                href="https://www.facebook.com/profile.php?id=100006722971913"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: "white" }}
+              >
+                <AiOutlineFacebook style={{ width: "30px", height: "30px" }} />
+              </a>
+            </div>
+          </div>
         </section>
         <section
           ref={mainInfo}
@@ -94,22 +128,15 @@ const Info = ({ showInfo, initialShowMenu }) => {
         >
           <h3 style={{ fontSize: "3rem" }}>Лена Тиунова</h3>
           <p style={{ padding: "3rem 5rem" }}>
-            Значимость этих проблем настолько очевидна, что постоянное
-            информационно-пропагандистское обеспечение нашей деятельности
-            представляет собой интересный эксперимент проверки существенных
-            финансовых и административных условий. Задача организации, в
-            особенности же консультация с широким активом влечет за собой
-            процесс внедрения и модернизации направлений прогрессивного
-            развития. Задача организации, в особенности же реализация намеченных
-            плановых заданий представляет собой интересный эксперимент проверки
-            новых предложений. Товарищи! постоянный количественный рост и сфера
-            нашей активности влечет за собой процесс внедрения и модернизации
-            соответствующий условий активизации. Задача организации, в
-            особенности же постоянный количественный рост и сфера нашей
-            активности требуют определения и уточнения новых предложений.
-            Идейные соображения высшего порядка, а также сложившаяся структура
-            организации обеспечивает широкому кругу (специалистов) участие в
-            формировании систем массового участия.
+            Приятно, когда фотографию хочется просматривать, как хороший
+            рассказ. Каждый раз новые мысли, эмоции. Делать красивые, интересные
+            кадры легко, когда ты знаешь, что цель фотографии - это передать
+            видимое и невидимое: людей, костюмы, дома, природу, свет, атмосферу,
+            характер, любовь, доброту, счастье... Люблю восхищаться улыбками и
+            эмоциями непрофессиональных моделей, бликами на ресничках невест,
+            усами своего кота, любыми взаимодействиями модели и декорации,
+            “неправильными” детскими движениями, превращающими фотосессию в
+            непредсказуемую Историю в кадре.
           </p>
           <p style={{ padding: "3rem 5rem" }}>
             Равным образом дальнейшее развитие различных форм деятельности

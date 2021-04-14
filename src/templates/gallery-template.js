@@ -9,7 +9,7 @@ const GalleryTemplate = ({ data }) => {
   const images = data.photoshoot.pictures.map(picture => {
     const img = getImage(picture.localFile)
     return (
-      <div key={picture.id} style={{}}>
+      <div key={picture.id}>
         <div className="slide" style={{ height: "100vh" }}>
           <GatsbyImage
             image={img}

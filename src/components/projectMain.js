@@ -13,8 +13,6 @@ const ProjectMain = ({ project, index }) => {
 
   const image = getImage(project.pictures[0].localFile)
 
-  console.log(index, "index")
-
   useEffect(() => {
     gsap.from(elRef.current, {
       duration: 2,
@@ -50,21 +48,25 @@ const ProjectMain = ({ project, index }) => {
         style={{
           padding: "2rem 6rem",
           display: "flex",
+          position: "relative",
+          pointerEvents: "none",
         }}
       >
-        <Link
-          to={`/gallery/${project.slug}`}
-          style={{ marginLeft: index % 2 ? "auto" : "0" }}
-        >
-          <div className="scale">
+        <Link to={`/gallery/${project.slug}`}>
+          <div className="scale" style={{ display: "flex" }}>
             <GatsbyImage
-              style={{ maxHeight: "90vh" }}
+              style={{ maxHeight: "90vh", display: "flex" }}
               className="ourImage"
               image={image}
               quality={95}
               formats={["AUTO", "WEBP"]}
               alt={project.title}
-              imgStyle={{ objectFit: "contain" }}
+              imgStyle={{
+                objectFit: "contain",
+                width: "unset",
+                pointerEvents: "auto",
+                marginLeft: index % 2 ? "auto" : "0",
+              }}
             />
           </div>
         </Link>

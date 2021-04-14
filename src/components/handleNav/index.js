@@ -18,7 +18,6 @@ const HandleNav = () => {
   }
 
   const handleBtnClick = () => {
-    console.log("bnt clicked")
     disableMenu()
     if (initialShowMenu === false) {
       setInitialShowMenu(null)

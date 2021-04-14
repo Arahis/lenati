@@ -41,14 +41,6 @@ const NavBtn = ({ showInfo, btnState, handleClick }) => {
   const btn = useRef(null)
   const closeIco = useRef(null)
 
-  // useEffect(() => {
-  //   if (showInfo === true) {
-  //     closeIco.current.style.transform = "rotate(45deg)"
-  //   } else if (showInfo === false) {
-  //     closeIco.current.style.transform = "rotate(0deg)"
-  //   }
-  // }, [showInfo, closeIco.current])
-
   const toggleBtnAnimation = () => {
     handleClick()
     gsap.fromTo(
@@ -67,7 +59,6 @@ const NavBtn = ({ showInfo, btnState, handleClick }) => {
     )
   }
 
-  console.log(showInfo)
   return (
     <div
       ref={btn}

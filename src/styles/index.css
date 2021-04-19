@@ -2,23 +2,7 @@
   opacity: 0;
 }
 
-/* .menu-btn:after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 2px;
-  width: 0;
-  right: 0;
-  color: red;
-  transition: 0.3s ease;
-} */
-
-/* .menu-btn:hover:after {
-  width: 100%;
-  left: 0;
-  background: red;
-} */
-/* .scale {
+.scale {
   transition: 0.7s ease-in-out;
   overflow: hidden;
 }
@@ -33,4 +17,4 @@
 
 .scale:hover .ourImage {
   transform: scale(1.1);
-} */
+}

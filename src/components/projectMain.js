@@ -13,20 +13,20 @@ const ProjectMain = ({ project, index }) => {
 
   const image = getImage(project.pictures[0].localFile)
 
-  useEffect(() => {
-    gsap.from(elRef.current, {
-      duration: 2,
-      x: -20,
-      y: 30,
-      ease: "none",
-      scrollTrigger: {
-        id: `section-${index + 1}`,
-        trigger: elRef.current,
-        start: "top center+=100",
-        toggleActions: "play none none reverse",
-      },
-    })
-  }, [elRef, index])
+  // useEffect(() => {
+  //   gsap.from(elRef.current, {
+  //     duration: 2,
+  //     x: -20,
+  //     y: 30,
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       id: `section-${index + 1}`,
+  //       trigger: elRef.current,
+  //       start: "top center+=100",
+  //       toggleActions: "play none none reverse",
+  //     },
+  //   })
+  // }, [elRef, index])
 
   useEffect(() => {
     titleRefStyle.current = gsap.to(titleRef.current, {
@@ -39,8 +39,13 @@ const ProjectMain = ({ project, index }) => {
 
   return (
     <section
-      onMouseEnter={() => titleRefStyle.current.play()}
-      onMouseLeave={() => titleRefStyle.current.reverse()}
+      onMouseOver={() => {
+        titleRefStyle.current.play()
+      }}
+      onMouseLeave={() => {
+        titleRefStyle.current.reverse()
+      }}
+      aria-hidden="true"
     >
       <div
         ref={elRef}
@@ -52,10 +57,10 @@ const ProjectMain = ({ project, index }) => {
           pointerEvents: "none",
         }}
       >
-        <Link to={`/gallery/${project.slug}`}>
+        <Link to={`/gallery/${project.slug}`} style={{ width: "100%" }}>
           <div className="scale" style={{ display: "flex" }}>
             <GatsbyImage
-              style={{ maxHeight: "90vh", display: "flex" }}
+              style={{ maxHeight: "90vh", display: "flex", width: "100%" }}
               className="ourImage"
               image={image}
               quality={95}

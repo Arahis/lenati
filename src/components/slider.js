@@ -67,6 +67,7 @@ const Slider = ({ items }) => {
 
   return (
     <div
+      aria-hidden="true"
       onClick={handleMouseClick}
       style={{
         width: "100%",

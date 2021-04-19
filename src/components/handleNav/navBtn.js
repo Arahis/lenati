@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef } from "react"
 import gsap from "gsap"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { BiPlus } from "react-icons/bi"
 
 const Button = styled.button`

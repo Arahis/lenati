@@ -15,7 +15,7 @@ const Footer = ({ pictureTitle }) => {
         padding: "2rem 3rem",
       }}
     >
-      <Link to="/">Back</Link>
+      <Link to="/">Назад</Link>
       <h1 style={{ fontSize: "1rem", fontWeight: "200" }}>{pictureTitle}</h1>
     </div>
   )
